@@ -14,6 +14,6 @@ Vagrant.configure("2") do |config|
     end
   config.vm.synced_folder ".", "/var/www/flask-modules"
   config.vm.provision :shell, path: "./vagrant_provision/packages.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/modules.sh"
   config.vm.provision :shell, path: "./vagrant_provision/dev_env.sh"
+  config.vm.provision :shell, path: "./vagrant_provision/modules.sh"
 end
