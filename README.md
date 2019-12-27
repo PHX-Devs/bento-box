@@ -1,5 +1,6 @@
 # bento-box
 A flask developer's box of goodies.
+
 ## Vagrant setup
 1. make sure you have Vagrant and Virtualbox installed
 2. open terminal/cmd in this dir
@@ -10,7 +11,7 @@ A flask developer's box of goodies.
 2. configure putty to use 'vagrant' user, converted private key, port 2222
 
 ## Vagrant up gets you...
-* centos7 minimal
+* centos8
 * all rpms updated
 * python36 installed
 * flask installed
