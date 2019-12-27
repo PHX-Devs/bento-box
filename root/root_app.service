@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve root flask app
+After=network.target
+
+[Service]
+User=nginx
+Group=nginx
+WorkingDirectory=/var/www/flask-modules/root
+Environment="PATH=/var/www/flask-modules/root"
+ExecStart=/usr/local/bin/uwsgi --ini root.ini
+
+[Install]
+WantedBy=multi-user.target
