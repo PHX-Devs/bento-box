@@ -25,7 +25,7 @@ A flask developer's box of goodies.
 **for the sake of example, we'll act like we're adding a module named 'carbs'
 1. create a new dir in the root of this repo (/carbs/)
 2. make sure it has the following (probably best to copy one of the examples)
-    * __init__.py (empty)
+    * \_\_init\_\_.py (empty - if you're reading this in an editor... otherwise known as __init__.py)
     * carbs.py (main flask app here)
     * carbs.ini (uwsgi config items)
     * carbs.service (systemd service file)
