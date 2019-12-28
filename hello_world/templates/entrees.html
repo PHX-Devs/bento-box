@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <h1>Available Entrees:</h1>
+        <ul>
+            {% for item in entrees %}
+            <li>{{item.entree_id}}::{{item.entree_name}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
