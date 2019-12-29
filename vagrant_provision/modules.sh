@@ -1,17 +1,25 @@
-# root flask module
-cp /var/www/flask-modules/root/root_app.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl start root_app
-systemctl enable root_app
+# array of module names to install on the system
+modules=()
+modules+=(root_app)
+modules+=(hello_world)
+modules+=(example_api)
+# add your new module by adding a line here
+#modules+=(your_new_module_here)
 
-# hello world module
-cp /var/www/flask-modules/hello_world/hello_world.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl start hello_world
-systemctl enable hello_world
+for module_name in "${modules[@]}"
+do
+    # install the nginx conf file (nginx will load /etc/nginx/default.d/*.conf by default)
+    cp /var/www/flask-modules/${module_name}/${module_name}.conf /etc/nginx/default.d/
+    # install the service file to the systemd dir
+    cp /var/www/flask-modules/${module_name}/${module_name}.service /etc/systemd/system/
+    # reload to make systemctl see the new service
+    systemctl daemon-reload
+    # start the service
+    systemctl start $module_name
+    # enable the service (so it starts automatically on boot)
+    systemctl enable $module_name
+done
 
-# example api module
-cp /var/www/flask-modules/example_api/example_api.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl start example_api
-systemctl enable example_api
+# restart nginx to load the new conf files
+systemctl restart nginx
+

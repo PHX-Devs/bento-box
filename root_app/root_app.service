@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=nginx
 Group=nginx
-WorkingDirectory=/var/www/flask-modules/root
-Environment="PATH=/var/www/flask-modules/root"
-ExecStart=/usr/local/bin/uwsgi --ini root.ini
+WorkingDirectory=/var/www/flask-modules/root_app
+Environment="PATH=/var/www/flask-modules/root_app"
+ExecStart=/usr/local/bin/uwsgi --ini root_app.ini
 
 [Install]
 WantedBy=multi-user.target

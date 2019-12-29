@@ -18,6 +18,7 @@ A flask developer's box of goodies.
 * postgres 12 and postgis 3 installed
     * also a starter database called 'bento' 
 * migra installed
+* empty 'root_app' module listening on the '/' path
 * hello world flask app installed and congured in nginx
 * example api module installed (with an actual database schema behind it)
 
@@ -30,15 +31,17 @@ A flask developer's box of goodies.
     * carbs.ini (uwsgi config items)
     * carbs.service (systemd service file)
     * wsgi.py (boilerplate - a bootstrapper for uwsgi to point to)
+    * carbs.conf (nginx config file - be sure to change a few references)
     * ./templates/ dir (optional, if your module has a web ui)
 **If copy/pasting, make sure to review each of the above files
-3. add a carbs.conf to /nginx_confs/
-    * again, copy/paste if you'd like, but change the several references to 'carbs'
-4. add a few lines to /vagrant_provision/modules.sh for your new carbs module
-    * these lines will run next time your vagrant box provisions, but you can just run them manually for now
-    * this will allow your module to run inside of a uwsgi proc running as a service 
+3. add a line to /vagrant_provision/modules.sh for your new carbs module
+    * will run next time your vagrant box provisions
+    * to run the provision step manually (just for your module), comment out accordingly and run modules.sh
+    * this step:
+        * installs your module as a uwsgi proc running as a service
+        * adds the nginx config to the appropriate dir
     * systemctl command will match the filename of your .service file (systemctl start carbs)
-5. restart nginx
+4. restart nginx
     * 'systemctl restart nginx
 
 ## To create a new db schema:
