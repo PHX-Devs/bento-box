@@ -1,0 +1,1 @@
+winscp.com /keygen .\.vagrant\machines\default\virtualbox\private_key /output=.\.vagrant\machines\default\virtualbox\private.ppk
