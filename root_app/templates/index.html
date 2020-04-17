@@ -1,0 +1,39 @@
+{% extends "base_template.html" %}
+{% block title %}Bento Box{% endblock %}
+
+{% block js %}
+<script>
+
+</script>
+{% endblock %}
+
+{% block style %}
+.img-responsive {
+  display: inline-block;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 0;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+{% endblock %}
+
+{% block content%}
+    <div class="col-sm-12 text-center">
+        <img class="img-responsive mt-3 mb-3" src="/static/image/title_logo.png" width="50%">
+        <div class="container">
+            <img class="img-responsive" src="/static/image/Bento.png" width="50%">
+            <div class="centered">My first bento-box!</div>
+        </div>
+        <p>Try going to /hello_world/</p>
+    </div>
+{% endblock %}
