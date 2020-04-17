@@ -37,7 +37,7 @@ To Convert:
     * also a starter database called 'bento' and a schema called test
 * migra installed
 * empty 'root_app' module listening on the '/' path
-* hello world flask app installed and congured in nginx
+* hello world flask app installed and configured in nginx
 * example api module installed (with an actual database schema behind it)
 
 ## To create a new module:
