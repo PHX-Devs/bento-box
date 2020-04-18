@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/johnzech/bento-box"><img src="static/image/Bento.png" alt="lad" /></a>
+  <a href="https://github.com/johnzech/bento-box"><img src="static/image/Bento.png" alt="lad" width="50%" /></a>
 </h1>
 
 # bento-box
