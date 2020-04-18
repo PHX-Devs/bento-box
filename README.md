@@ -6,9 +6,7 @@
 
 A flask developer's box of goodies.
 
-<img src="https://img.shields.io/badge/buymeacoffee- -brightgreen" alt="code-size"/>
-<img src="https://img.shields.io/github/languages/code-size/johnzech/bento-box" alt="code-size"/>
-<a href="LICENSE"><img src="https://img.shields.io/github/license/johnzech/bento-box.svg" alt="license" /></a>
+<img src="https://img.shields.io/badge/buymeacoffee- -brightgreen" alt="code-size"/><img src="https://img.shields.io/github/languages/code-size/johnzech/bento-box" alt="code-size"/><a href="LICENSE"><img src="https://img.shields.io/github/license/johnzech/bento-box.svg" alt="license" /></a>
 
 ## Table of Contents
 
