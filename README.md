@@ -14,6 +14,7 @@ A flask developer's box of goodies.
   * [Set up the Vagrant Box](#set-up-the-vagrant-box)
   * [SSH to the machine](#ssh-to-the-machine)
   * [Putty setup (optional)](#putty-setup-(optional))
+  * [Install AWS, Google, Digital Ocean, etc](#install-on-aws,-google,-digital-ocean,-etc)
 * [Get Started](#get-started)
   * [Vagrant up gets you...](#vagrant-up-gets-you...)
   * [Creating a new module](#creating-a-new-module)
@@ -50,6 +51,11 @@ To Convert:
     * host: localhost
     * port: 2222
     * private key: ./.vagrant/machines/default/virtualbox/private.ppk
+
+### Install on AWS, Google, Digital Ocean, etc
+1. make sure your instance is running __centos8__
+2. clone repo in /var/www/flask-modules 
+2. run `cloud_install.sh` 
 
 ## Get Started
 
