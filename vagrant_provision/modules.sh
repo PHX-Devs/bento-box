@@ -6,6 +6,8 @@ modules+=(example_api)
 # add your new module by adding a line here
 #modules+=(your_new_module_here)
 
+mkdir -p /var/www/flask-modules
+
 for module_name in "${modules[@]}"
 do
     # install the nginx conf file (nginx will load /etc/nginx/default.d/*.conf by default)
