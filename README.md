@@ -115,31 +115,31 @@ tree
 
 ```sh
 .
-├── LICENSE
-├── README.md
-├── Vagrantfile
-├── __init__.py
+├── cloud_install.sh
 ├── config.py
 ├── db
 │   ├── create_database.sql
 │   └── test_schema.sql
 ├── example_api
-│   ├── __init__.py
 │   ├── example_api.conf
 │   ├── example_api.ini
 │   ├── example_api.py
 │   ├── example_api.service
+│   ├── __init__.py
 │   └── wsgi.py
 ├── generate_putty_key.bat
 ├── hello_world
-│   ├── __init__.py
 │   ├── hello_world.conf
 │   ├── hello_world.ini
 │   ├── hello_world.py
 │   ├── hello_world.service
+│   ├── __init__.py
 │   ├── templates
 │   │   └── entrees.html
 │   └── wsgi.py
+├── __init__.py
+├── LICENSE
+├── README.md
 ├── root_app
 │   ├── __init__.py
 │   ├── root_app.conf
@@ -151,16 +151,14 @@ tree
 │   │   └── index.html
 │   └── wsgi.py
 ├── static
-│   ├── css
 │   ├── favicon.ico
-│   ├── font
-│   ├── image
-│   │   ├── Bento.png
-│   │   └── title_logo.png
-│   └── js
+│   └── image
+│       ├── Bento.png
+│       └── title_logo.png
 ├── utils
-│   ├── __init__.py
-│   └── db.py
+│   ├── db.py
+│   └── __init__.py
+├── Vagrantfile
 └── vagrant_provision
     ├── dev_env.sh
     ├── modules.sh
@@ -170,7 +168,7 @@ tree
     ├── schemas.sh
     └── static.conf
 
-13 directories, 41 files
+10 directories, 42 files
 ```
 
 ### Note on db versioning/migrations
