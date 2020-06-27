@@ -5,3 +5,4 @@
 /usr/bin/sh ./vagrant_provision/postgres.sh
 /usr/bin/sh ./vagrant_provision/modules.sh
 /usr/bin/sh ./vagrant_provision/schemas.sh
+/usr/bin/sh ./vagrant_provision/crons.sh

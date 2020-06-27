@@ -14,11 +14,12 @@ A flask developer's box of goodies.
   * [Set up the Vagrant Box](#set-up-the-vagrant-box)
   * [SSH to the machine](#ssh-to-the-machine)
   * [Putty setup (optional)](#putty-setup-(optional))
-  * [Install AWS, Google, Digital Ocean, etc](#install-on-aws,-google,-digital-ocean,-etc)
+  * [Install on AWS, Google, Digital Ocean, etc](#install-on-aws,-google,-digital-ocean,-etc)
 * [Get Started](#get-started)
   * [Vagrant up gets you...](#vagrant-up-gets-you...)
   * [Creating a new module](#creating-a-new-module)
   * [Creating a new db schema](#creating-a-new-db-schema)
+  * [Creating a new cron job](#creating-a-new-cron-job)
 * [Architecture](#architecture)
 * [Note on db versioning/migrations](#note-on-db-versioning/migrations)
 * [License](#license)
@@ -105,6 +106,17 @@ Gets you...
     * runuser -l postgres -c "psql -U bento -f /var/www/flask-modules/db/carbs_schema.sql"
     * note: this will install the carbs schema to the bento database - if you've created your own database, use that
 
+### Creating a new cron job
+**for the sake of example, we'll act like we're adding a cron named 'carbs'
+1. create the new dir in `/crons/carbs`
+2. make sure it has the following (probably best to copy the example_cron)
+    * carbs.logrotate
+    * carbs.py (main python cron job)
+3. add a line to `/crons/crontab` (make sure that there is a newline at the end of the file)
+    * in our case `*/1 * * * * cd /var/www/flask-modules/crons/carbs && /bin/python3 /var/www/flask-modules/crons/carbs/carbs.py >> /var/log/carbs/carbs.log`
+4. add a line to `/vagrant_provision/crons.sh` 
+    * `crons+=(carbs)`
+
 ### Architecture
 
 The following bash output is the directory structure and organization of bento-box:
@@ -115,31 +127,37 @@ tree
 
 ```sh
 .
-├── LICENSE
-├── README.md
-├── Vagrantfile
-├── __init__.py
+├── cloud_install.sh
 ├── config.py
+├── crons
+│   ├── crontab
+│   └── example_cron
+│       ├── example_cron.logrotate
+│       ├── example_cron.py
+│       └── say_hello.py
 ├── db
 │   ├── create_database.sql
 │   └── test_schema.sql
 ├── example_api
-│   ├── __init__.py
 │   ├── example_api.conf
 │   ├── example_api.ini
 │   ├── example_api.py
 │   ├── example_api.service
+│   ├── __init__.py
 │   └── wsgi.py
 ├── generate_putty_key.bat
 ├── hello_world
-│   ├── __init__.py
 │   ├── hello_world.conf
 │   ├── hello_world.ini
 │   ├── hello_world.py
 │   ├── hello_world.service
+│   ├── __init__.py
 │   ├── templates
 │   │   └── entrees.html
 │   └── wsgi.py
+├── __init__.py
+├── LICENSE
+├── README.md
 ├── root_app
 │   ├── __init__.py
 │   ├── root_app.conf
@@ -151,17 +169,16 @@ tree
 │   │   └── index.html
 │   └── wsgi.py
 ├── static
-│   ├── css
 │   ├── favicon.ico
-│   ├── font
-│   ├── image
-│   │   ├── Bento.png
-│   │   └── title_logo.png
-│   └── js
+│   └── image
+│       ├── Bento.png
+│       └── title_logo.png
 ├── utils
-│   ├── __init__.py
-│   └── db.py
+│   ├── db.py
+│   └── __init__.py
+├── Vagrantfile
 └── vagrant_provision
+    ├── crons.sh
     ├── dev_env.sh
     ├── modules.sh
     ├── nginx.sh
@@ -170,7 +187,7 @@ tree
     ├── schemas.sh
     └── static.conf
 
-13 directories, 41 files
+12 directories, 47 files
 ```
 
 ### Note on db versioning/migrations

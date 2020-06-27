@@ -19,4 +19,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "./vagrant_provision/postgres.sh"
   config.vm.provision :shell, path: "./vagrant_provision/modules.sh"
   config.vm.provision :shell, path: "./vagrant_provision/schemas.sh"
+  config.vm.provision :shell, path: "./vagrant_provision/crons.sh"
 end
