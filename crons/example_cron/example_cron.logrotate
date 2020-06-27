@@ -1,4 +1,4 @@
-/var/log/notifier/notifier.log {
+/var/log/example_cron/example_cron.log {
    create 0664 root root 
    daily 
    missingok
