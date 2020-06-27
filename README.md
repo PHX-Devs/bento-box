@@ -134,8 +134,6 @@ tree
 │   └── example_cron
 │       ├── example_cron.logrotate
 │       ├── example_cron.py
-│       ├── __pycache__
-│       │   └── say_hello.cpython-36.pyc
 │       └── say_hello.py
 ├── db
 │   ├── create_database.sql
@@ -189,7 +187,7 @@ tree
     ├── schemas.sh
     └── static.conf
 
-13 directories, 48 files
+12 directories, 47 files
 ```
 
 ### Note on db versioning/migrations
