@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/centos8"
+  config.vm.box = "almalinux/8"
   config.vm.hostname = "bento"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 443, host: 4043
@@ -20,4 +20,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "./vagrant_provision/modules.sh"
   config.vm.provision :shell, path: "./vagrant_provision/schemas.sh"
   config.vm.provision :shell, path: "./vagrant_provision/crons.sh"
+  config.vm.provision :shell, path: "./vagrant_provision/enable_ssl.sh"
 end

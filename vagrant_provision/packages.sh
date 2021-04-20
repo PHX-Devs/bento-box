@@ -7,5 +7,6 @@ pip3 install migra[pg]
 pip3 install flask-restful
 dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 dnf -qy module disable postgresql
-dnf install -y postgresql12-server
-dnf install -y postgis30_12 --enablerepo=PowerTools
+dnf install -y postgresql13-server
+dnf install -y epel-release
+dnf install -y postgis30_13 --enablerepo=powertools

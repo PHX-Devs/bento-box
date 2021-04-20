@@ -1,4 +1,4 @@
-runuser -l postgres -c '/usr/pgsql-12/bin/initdb /var/lib/pgsql/12/data'
+runuser -l postgres -c '/usr/pgsql-13/bin/initdb /var/lib/pgsql/13/data'
 
-systemctl start postgresql-12
-systemctl enable postgresql-12
+systemctl start postgresql-13
+systemctl enable postgresql-13
