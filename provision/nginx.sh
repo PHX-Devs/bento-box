@@ -1,7 +1,7 @@
 # remove '/' location directive from base nginx.conf (now handled in /root/ module instead)
 sed -ri '/location \//,/.*\}/d' /etc/nginx/nginx.conf
 
-cp /var/www/flask-modules/vagrant_provision/static.conf /etc/nginx/default.d/
+cp /var/www/modules/provision/static.conf /etc/nginx/default.d/
 
 # start and enable nginx
 systemctl start nginx

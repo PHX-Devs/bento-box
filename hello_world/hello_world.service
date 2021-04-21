@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=nginx
 Group=nginx
-WorkingDirectory=/var/www/flask-modules/hello_world
-Environment="PATH=/var/www/flask-modules/hello_world"
+WorkingDirectory=/var/www/modules/hello_world
+Environment="PATH=/var/www/modules/hello_world"
 ExecStart=/usr/local/bin/uwsgi --ini hello_world.ini
 
 [Install]

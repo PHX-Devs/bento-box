@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=nginx
 Group=nginx
-WorkingDirectory=/var/www/flask-modules/example_api
-Environment="PATH=/var/www/flask-modules/example_api"
+WorkingDirectory=/var/www/modules/example_api
+Environment="PATH=/var/www/modules/example_api"
 ExecStart=/usr/local/bin/uwsgi --ini example_api.ini
 
 [Install]

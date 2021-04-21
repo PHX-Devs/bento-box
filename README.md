@@ -55,8 +55,8 @@ To Convert:
 
 ### Install on AWS, Google, Digital Ocean, etc
 1. make sure your instance is running __centos8__
-2. clone repo in /var/www/flask-modules 
-2. run `cloud_install.sh` 
+2. clone repo in /var/www/modules 
+2. run `install.sh` 
 
 ## Get Started
 
@@ -88,7 +88,7 @@ Gets you...
     * carbs.conf (nginx config file - be sure to change a few references)
     * ./templates/ dir (optional, if your module has a web ui)
 **If copy/pasting, make sure to review each of the above files
-3. add a line to /vagrant_provision/modules.sh for your new carbs module
+3. add a line to /provision/modules.sh for your new carbs module
     * will run next time your vagrant box provisions
     * to run the provision step manually (just for your module), comment out accordingly and run modules.sh
     * this step:
@@ -102,8 +102,8 @@ Gets you...
 **for the sake of example, we'll act like we're adding a schema named 'carbs'
 1. add a schema create file in the db dir (/db/carbs_schema.sql)
     * this file should start with 'CREATE SCHEMA carbs;'
-2. add a line to /vagrant_provision/schemas.sh
-    * runuser -l postgres -c "psql -U bento -f /var/www/flask-modules/db/carbs_schema.sql"
+2. add a line to /provision/schemas.sh
+    * runuser -l postgres -c "psql -U bento -f /var/www/modules/db/carbs_schema.sql"
     * note: this will install the carbs schema to the bento database - if you've created your own database, use that
 
 ### Creating a new cron job
@@ -113,8 +113,8 @@ Gets you...
     * carbs.logrotate
     * carbs.py (main python cron job)
 3. add a line to `/crons/crontab` (make sure that there is a newline at the end of the file)
-    * in our case `*/1 * * * * cd /var/www/flask-modules/crons/carbs && /bin/python3 /var/www/flask-modules/crons/carbs/carbs.py >> /var/log/carbs/carbs.log`
-4. add a line to `/vagrant_provision/crons.sh` 
+    * in our case `*/1 * * * * cd /var/www/modules/crons/carbs && /bin/python3 /var/www/modules/crons/carbs/carbs.py >> /var/log/carbs/carbs.log`
+4. add a line to `/provision/crons.sh` 
     * `crons+=(carbs)`
 
 ### Architecture
@@ -127,7 +127,7 @@ tree
 
 ```sh
 .
-├── cloud_install.sh
+├── install.sh
 ├── config.py
 ├── crons
 │   ├── crontab
@@ -177,7 +177,7 @@ tree
 │   ├── db.py
 │   └── __init__.py
 ├── Vagrantfile
-└── vagrant_provision
+└── provision
     ├── crons.sh
     ├── dev_env.sh
     ├── modules.sh

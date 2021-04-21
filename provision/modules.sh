@@ -6,14 +6,14 @@ modules+=(example_api)
 # add your new module by adding a line here
 #modules+=(your_new_module_here)
 
-mkdir -p /var/www/flask-modules
+mkdir -p /var/www/modules
 
 for module_name in "${modules[@]}"
 do
     # install the nginx conf file (nginx will load /etc/nginx/default.d/*.conf by default)
-    cp /var/www/flask-modules/${module_name}/${module_name}.conf /etc/nginx/default.d/
+    cp /var/www/modules/${module_name}/${module_name}.conf /etc/nginx/default.d/
     # install the service file to the systemd dir
-    cp /var/www/flask-modules/${module_name}/${module_name}.service /etc/systemd/system/
+    cp /var/www/modules/${module_name}/${module_name}.service /etc/systemd/system/
     # reload to make systemctl see the new service
     systemctl daemon-reload
     # start the service

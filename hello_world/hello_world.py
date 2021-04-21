@@ -15,7 +15,7 @@ def hello():
     Create more like it by copying the following:
     <ul>
     <li>Copy hello_world dir, change hello_world references.</li>
-    <li>Edit /vagrant_provision/modules.sh and add a few lines</li>
+    <li>Edit /provision/modules.sh and add a few lines</li>
     <li>Copy/paste hello_world.conf in /nginx_confs/, edit accordingly</li>
     </ul>
     </p>

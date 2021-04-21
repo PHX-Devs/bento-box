@@ -12,13 +12,6 @@ Vagrant.configure("2") do |config|
                            "--natdnshostresolver1", "on"
                          ]
     end
-  config.vm.synced_folder ".", "/var/www/flask-modules"
-  config.vm.provision :shell, path: "./vagrant_provision/packages.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/dev_env.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/nginx.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/postgres.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/modules.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/schemas.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/crons.sh"
-  config.vm.provision :shell, path: "./vagrant_provision/enable_ssl.sh"
+  config.vm.synced_folder ".", "/var/www/modules"
+  config.vm.provision :shell, path: "./install.sh"
 end
